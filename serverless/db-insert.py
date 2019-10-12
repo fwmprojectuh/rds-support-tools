@@ -6,11 +6,11 @@ import logging
 import traceback
 from os import environ
 
-address=environ.get('ENDPOINT')
-port=environ.get('PORT')
-user=environ.get('DBUSER')
-pw=environ.get('DBPASSWORD')
-database=environ.get('DATABASE')
+address='fwmprojectuh.cf7pzk94l4ly.us-east-1.rds.amazonaws.com'
+port=3306
+user='fwmprojectuh'
+pw='Ht0wnstr0ng'
+database='fwmprojectuh'
 
 insert="INSERT INTO fwmprojectuh.floodwaterdata (Reading) VALUES (210)"
 
@@ -19,7 +19,7 @@ logger.setLevel(logging.INFO)
 
 def make_connection():
     return pymysql.connect(host=address, user=user, passwd=pw,
-        port=int(port), db=database, autocommit=True)
+        port=port, db=database, autocommit=True)
 
 def log_err(errmsg):
     logger.error(errmsg)
