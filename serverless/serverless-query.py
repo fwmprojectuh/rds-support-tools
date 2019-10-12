@@ -21,11 +21,11 @@ import logging
 import traceback
 from os import environ
 
-endpoint=environ.get('ENDPOINT')
-port=environ.get('PORT')
-dbuser=environ.get('DBUSER')
-password=environ.get('DBPASSWORD')
-database=environ.get('DATABASE')
+endpoint='fwmprojectuh.cf7pzk94l4ly.us-east-1.rds.amazonaws.com'
+port=3306
+dbuser='fwmprojectuh'
+password='Ht0wnstr0ng'
+database='fwmprojectuh'
 
 query="SELECT * FROM amzn.serverless_test LIMIT 2"
 
@@ -34,7 +34,7 @@ logger.setLevel(logging.INFO)
 
 def make_connection():
     return pymysql.connect(host=endpoint, user=dbuser, passwd=password,
-        port=int(port), db=database, autocommit=True)
+        port=port, db=database, autocommit=True)
 
 def log_err(errmsg):
     logger.error(errmsg)
